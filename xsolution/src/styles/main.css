@@ -1,0 +1,68 @@
+@import "./reset.css";
+@import "./fonts/fonts.css";
+
+/* Переменные */
+:root {
+    /* Light mode */
+    --page-bg: #f6f7f8;
+    --text-color: #222;
+    --card-bg: #fff;
+    --input-bg: #ecf1f7;
+    --yellow: #ffdd2d;
+    /* Light mode */
+}
+
+.dark {
+    /* Dark mode */
+    --page-bg: #212121;
+    --text-color: #fff;
+    /* Dark mode */
+}
+/* Переменные */
+
+/* Общие стили */
+#root {
+    min-height: 100vh;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+::selection {
+    background: rgba(255,221,45,.32)!important;
+    color: rgba(0,0,0,.8)!important;
+    text-shadow: none;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    font-family: 'Play', sans-serif;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+
+
+/* Общие стили */
+
+
+
+
+
+
+
+

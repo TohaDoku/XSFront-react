@@ -1,0 +1,142 @@
+.login-container {
+    margin: 0 auto;
+    padding: 25px 25px;
+    max-width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-id {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 50px;
+}
+
+.login-id img {
+    width: 28px;
+}
+
+.login-id p {
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+.login-close {
+    padding: 10px;
+    background: #e3e4e5;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center; /* Центрируем контент по горизонтали */
+    align-items: center;
+    z-index: 10;
+}
+
+.login-close:active {
+    background: #d6d6d6;
+}
+
+.login-close svg {
+    font-size: 26px;    
+    color: #686969;
+}
+
+.bg-logo {
+    position: absolute;
+    right: 0%;
+    bottom: -25%;
+    width: 50%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.login-main-block {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 48px;
+    min-width: 515px;
+    min-height: 208px;
+    z-index: 10;
+    border-radius: 20px;
+}
+
+.login-main-block h3 {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* Плавающие инпуты */
+.form-inline {
+    display: flex;    
+}
+
+.form-group {
+    position:relative;
+    width: 100%;
+}
+
+.form-group label {
+    position: absolute;
+    top: 20px; /* Начальное положение лейбла */
+    transition: top 0.2s ease; /* Анимация при изменении положения */
+}
+
+.floating-input {
+    background: var(--input-bg);
+    height: 56px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.floating-input:focus {
+    border: 1px solid #333;
+    background: var(--card-bg);
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: 15px;
+    font-size: 0.75em;
+    color: #666;
+}
+
+.input-error {
+    background-color: #ffb3b3; /* Любой красный цвет, который вы хотите использовать */
+  }
+
+.error-message {
+    color: #ff0000; /* Цвет для текста ошибки */
+}
+
+.btn-login {
+    background: var(--yellow);
+    height: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+/* Плавающие инпуты */
