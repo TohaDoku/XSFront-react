@@ -11,6 +11,12 @@ import { SlArrowRight } from "react-icons/sl";
 const Login1 = () => {
   const navigate = useNavigate(); // Получаем функцию для редиректа
 
+  // Определение мобильного телефона
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  const isMobile = isMobileDevice();
+
   return (
     <>
       <main className='login-container'>
@@ -62,7 +68,7 @@ const Login1 = () => {
                     <ErrorMessage name="phone" component="div" className="error-message" />
                   </div>
                   <button type='submit' className='btn-login' disabled={isSubmitting}>
-                    <SlArrowRight />
+                    {isMobile ? 'Продолжить' : <SlArrowRight />}
                   </button>
                 </div>
               </Form>

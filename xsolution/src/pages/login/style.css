@@ -22,6 +22,7 @@
     color: #fff;
     padding: 2px 7px;
     border-radius: 50px;
+    z-index: 11;
 }
 
 .login-id img {
@@ -43,7 +44,7 @@
     display: flex;
     justify-content: center; /* Центрируем контент по горизонтали */
     align-items: center;
-    z-index: 10;
+    z-index: 11;
 }
 
 .login-close:active {
@@ -53,6 +54,7 @@
 .login-close svg {
     font-size: 26px;    
     color: #686969;
+    z-index: 12;
 }
 
 .bg-logo {
@@ -82,11 +84,19 @@
     font-size: 28px;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 24px;
+}
+
+.login-main-block p.number {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 15px;
+
 }
 
 /* Плавающие инпуты */
 .form-inline {
+    margin-top: 24px;
     display: flex;    
 }
 
@@ -140,3 +150,40 @@
     margin-left: 5px;
 }
 /* Плавающие инпуты */
+
+.countdown, .countdown-send {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.countdown-send {
+    color: #1f50ba;
+}
+
+/* Медиазапрос для экранов с максимальной шириной 600px */
+@media (max-width: 600px) {
+    .login-main-block {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        width: 50px;
+        height: 100vh;
+        z-index: 1;
+        padding-top: 75%;
+        overflow-y: hidden;
+    }
+    
+    .form-inline {
+        display: block;    
+        padding: 30px;
+    }
+
+    .btn-login {
+        margin-top: 20px;
+        background: var(--yellow);
+        min-width: 100%;
+        display: flex;
+        margin-left: 0;
+        font-weight: 300;
+    }
+
+}

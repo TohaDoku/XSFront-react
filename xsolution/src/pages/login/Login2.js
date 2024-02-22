@@ -5,12 +5,14 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './style.css';
 import logo from '../../img/icons/mini_logo.svg';
+import { SlArrowRight } from "react-icons/sl";
 
 const SuccessPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const phone = new URLSearchParams(location.search).get('phone');
   const [countdown, setCountdown] = useState(45);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -31,9 +33,15 @@ const SuccessPage = () => {
     if (values.code === '11111') {
       navigate('/main-page');
     } else {
-      // Если код неверный, выполните действия или выведите сообщение об ошибке
+      setError('Неверный код');
     }
   };
+
+  // Определение мобильного телефона
+  function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  const isMobile = isMobileDevice();
 
   return (
     <>
@@ -50,8 +58,8 @@ const SuccessPage = () => {
           </a>
         </div>
         <div className='login-main-block'>
-          <h2>Введите код</h2>
-          <p>Вы отправили код подтверждения на номер: {phone}</p>
+          <h3>Введите код</h3>
+          <p className='number'>Отправили код подтверждения на номер: +{phone}</p>
           <Formik
             initialValues={{ code: '' }}
             validationSchema={Yup.object().shape({
@@ -63,26 +71,32 @@ const SuccessPage = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-                <div className="form-group">
-                  <label htmlFor="code"></label>
-                    <Field name="code">
-                      {({ field, form, meta }) => (
-                        <input
-                          {...field}
-                          maxLength={5} // Установка максимальной длины в 5 символов
-                          className={`floating-input ${meta.error && meta.touched ? 'input-error' : ''}`}
-                          placeholder='Введите код'
-                        />
-                      )}
-                    </Field>
-                  <ErrorMessage name="code" component="div" className="error-message" />
+                <div className='form-inline'>
+                  <div className='form-group'>
+                    <label htmlFor="code"></label>
+                      <Field name="code">
+                        {({ field, form, meta }) => (
+                          <input
+                            {...field}
+                            maxLength={5} // Установка максимальной длины в 5 символов
+                            className={`floating-input ${meta.error && meta.touched ? 'input-error' : ''}`}
+                            placeholder='Введите код'
+                          />
+                        )}
+                      </Field>
+                    <ErrorMessage name="code" component="div" className="error-message" />
+                  </div>  
+                  <button type="submit" className={`btn-login ${isSubmitting ? 'disabled' : ''}`}>
+                      {isMobile ? 'Продолжить' : <SlArrowRight />}
+                  </button>
                 </div>
                 {countdown > 0 ? (
-                  <p>Отправим код повторно через {countdown} секунд</p>
+                  <p className='countdown'>Отправим код повторно через {countdown} секунд</p>
                 ) : (
-                  <button type="button" onClick={resendCode}>Отправить повторно</button>
+                  <button type="button" className='countdown-send' onClick={resendCode}>Отправить повторно</button>
                 )}
-                <button type="submit" disabled={isSubmitting}>Отправить</button>
+                
+                {error && <div className="error-message">{error}</div>}
               </Form>
             )}
           </Formik>
