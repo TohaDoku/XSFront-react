@@ -26,7 +26,7 @@
 }
 
 .app {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -39,7 +39,7 @@
 
 html, body {
     scroll-behavior: smooth;
-    font-family: 'Play', sans-serif;
+    font-family: 'Play', sans-serif!important;
     background-color: var(--page-bg);
     color: var(--text-color);
     min-height: 100vh;

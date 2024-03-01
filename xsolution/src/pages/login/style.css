@@ -162,6 +162,24 @@
 
 /* Медиазапрос для экранов с максимальной шириной 600px */
 @media (max-width: 600px) {
+    * {
+        overflow: hidden;
+    }
+
+    .login-id {
+        position:fixed;
+        z-index: 12;
+        left: 10px;
+        top: 20px;
+    }
+
+    .login-close {
+        position:fixed;
+        z-index: 12;
+        right: 10px;
+        top: 15px;
+    }
+    
     .login-main-block {
         background-color: var(--card-bg);
         color: var(--text-color);
@@ -183,7 +201,7 @@
         min-width: 100%;
         display: flex;
         margin-left: 0;
-        font-weight: 300;
+        font-weight: 300!important;
     }
 
 }
