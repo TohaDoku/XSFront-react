@@ -1,0 +1,120 @@
+.header-wrapper {
+    background: #eeeff0;
+    height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #7c7d7d;
+    position: relative;
+}
+
+.nav-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    width: 200px;
+    min-width: 200px;
+    height: auto;
+}
+
+.profile-img {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 10px;
+}
+
+ul.logo-nav-wrapper li.main-nav-li {
+    margin-right: 15px;
+}
+
+ul.logo-nav-wrapper li.main-nav-li a {
+    cursor: pointer;
+    transition: color .6s ease;
+}
+
+ul.logo-nav-wrapper li.main-nav-li a.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 29px;
+    transition: color .6s ease;
+}
+
+ul.logo-nav-wrapper li.main-nav-li a:hover {
+    color: #777;
+    border-bottom: 2px solid #777;
+    padding-bottom: 29px;
+    transition: color .6s ease;
+}
+
+.profile p {
+    margin-right: 10px;
+}
+
+/* Для устройств с шириной 576px и менее (мобильные устройства портретной ориентации) */
+@media (max-width: 576px) {
+    /* Ваши стили здесь */
+    .main-nav {
+        display: none;
+    }
+
+    div.mobile-menu {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    div.mobile-menu ul.logo-nav-wrapper li {
+        text-align: center;
+        margin-right: 0;
+        padding: 25px;
+        border-top: 1px solid #eeeff0;
+    }
+
+    div.mobile-menu ul.logo-nav-wrapper li a svg {
+        width: 40px;
+    }
+  }
+  
+  /* Для устройств с шириной от 577px до 768px (планшеты в портретной ориентации) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    /* Ваши стили здесь */
+    div.mobile-menu {
+        display: none;
+    }
+  }
+  
+  /* Для устройств с шириной от 769px до 992px (планшеты в альбомной ориентации и небольшие ноутбуки) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    /* Ваши стили здесь */
+    div.mobile-menu {
+        display: none;
+    }
+  }
+  
+  /* Для устройств с шириной от 993px до 1200px (стандартные ноутбуки и настольные мониторы) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    /* Ваши стили здесь */
+    div.mobile-menu {
+        display: none;
+    }
+  }
+  
+  /* Для устройств с шириной 1201px и более (большие настольные мониторы и широкоэкранные устройства) */
+  @media (min-width: 1201px) {
+    /* Ваши стили здесь */
+    div.mobile-menu {
+        display: none;
+    }
+  }
