@@ -28,12 +28,40 @@ const SuccessPage = () => {
     setCountdown(45);
   };
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    setSubmitting(false);
-    if (values.code === '11111') {
-      navigate('/main-page');
-    } else {
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const formData = new URLSearchParams();
+      formData.append('phone_number', phone);
+      formData.append('verification_code', values.code);
+  
+      console.log(phone)
+      console.log(values.code)
+  
+      const response = await fetch('https://www.bigozo.ru/api/verify-code/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+      });
+  
+      console.log(response)
+  
+      if (response.status === 200) {
+        const responseData = await response.json(); // Получаем данные из тела ответа
+  
+        if (responseData.message) {
+          console.log('Сообщение от сервера:', responseData);
+        }
+        navigate('/main-page');
+      } else {
+        setError('Неверный код');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке данных:', error);
       setError('Неверный код');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -65,7 +93,7 @@ const SuccessPage = () => {
             validationSchema={Yup.object().shape({
               code: Yup.string()
                 .required('Код обязателен')
-                .matches(/^[0-9]{5}$/, 'Код должен состоять из 5 цифр')
+                .matches(/^[0-9]{6}$/, 'Код должен состоять из 6 цифр')
             })}
             onSubmit={handleSubmit}
           >
@@ -78,7 +106,7 @@ const SuccessPage = () => {
                         {({ field, form, meta }) => (
                           <input
                             {...field}
-                            maxLength={5} // Установка максимальной длины в 5 символов
+                            maxLength={6} // Установка максимальной длины в 5 символов
                             className={`floating-input ${meta.error && meta.touched ? 'input-error' : ''}`}
                             placeholder='Введите код'
                           />

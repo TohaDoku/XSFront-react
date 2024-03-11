@@ -2,20 +2,44 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import InputMask from 'react-input-mask';
-import { useNavigate } from 'react-router-dom'; // Импорт из react-router-dom
+import { useNavigate } from 'react-router-dom';
 import logo from '../../img/icons/mini_logo.svg';
 import './style.css';
 import { IoClose } from "react-icons/io5";
 import { SlArrowRight } from "react-icons/sl";
 
-const Login1 = () => {
-  const navigate = useNavigate(); // Получаем функцию для редиректа
+const domen = 'https://www.bigozo.ru';
 
-  // Определение мобильного телефона
+const Login1 = () => {
+  const navigate = useNavigate();
+
   function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
   const isMobile = isMobileDevice();
+
+  const sendData = async (values) => {
+    try {
+      const data = new URLSearchParams();
+      data.append('phone_number', values.phone);
+  
+      const response = await fetch('https://www.bigozo.ru/api/verify-phone/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: data,
+      });
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        console.log(jsonResponse);
+      } else {
+        console.error('Ошибка при отправке данных');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке данных:', error);
+    }
+  };
 
   return (
     <>
@@ -37,12 +61,18 @@ const Login1 = () => {
             validationSchema={Yup.object().shape({
               phone: Yup.string()
                 .required('Телефон обязателен')
-                .matches(/^\+7\d{10}$/, 'Неверный формат телефона')
+                .matches(/^7\d{10}$/, 'Неверный формат телефона')
             })}
-            onSubmit={(values, { setSubmitting }) => {
-              console.log(values);
-              // После успешной отправки формы выполняем редирект на новую страницу
-              navigate(`/success?phone=${values.phone}`);
+            onSubmit={async (values, { setSubmitting }) => {
+              try {
+                console.log(values);
+                await sendData(values);
+                navigate(`/success?phone=${values.phone}`);
+              } catch (error) {
+                console.error('Ошибка при отправке данных:', error);
+              } finally {
+                setSubmitting(false);
+              }
             }}
           >
             {({ isSubmitting, errors, touched }) => (
@@ -51,20 +81,20 @@ const Login1 = () => {
                 <div className='form-inline'>
                   <div className='form-group'>
                     <label htmlFor="phone"></label>
-                      <Field name="phone">
-                        {({ field, form, meta }) => (
-                          <InputMask
-                            mask="+7\9999999999"
-                            maskChar="_"
-                            className={`floating-input ${meta.error && meta.touched ? 'input-error' : ''}`}
-                            placeholder='Телефон'
-                            value={field.value}
-                            onChange={(e) => {
-                              form.setFieldValue('phone', e.target.value);
-                            }}
-                          />
-                        )}
-                      </Field>
+                    <Field name="phone">
+                      {({ field, form, meta }) => (
+                        <InputMask
+                          mask="7\9999999999"
+                          maskChar="_"
+                          className={`floating-input ${meta.error && meta.touched ? 'input-error' : ''}`}
+                          placeholder='Телефон'
+                          value={field.value}
+                          onChange={(e) => {
+                            form.setFieldValue('phone', e.target.value);
+                          }}
+                        />
+                      )}
+                    </Field>
                     <ErrorMessage name="phone" component="div" className="error-message" />
                   </div>
                   <button type='submit' className='btn-login' disabled={isSubmitting}>
