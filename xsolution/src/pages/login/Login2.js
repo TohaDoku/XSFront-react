@@ -53,7 +53,13 @@ const SuccessPage = () => {
         if (responseData.message) {
           console.log('Сообщение от сервера:', responseData);
         }
-        navigate('/main-page');
+
+        if (responseData.message === 'Пользователь успешно авторизован') {
+          navigate('/main-page');
+        } else {
+          navigate('/new-order');
+        }
+          
       } else {
         setError('Неверный код');
       }

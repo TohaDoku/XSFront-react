@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./fonts/fonts.css";
 
+
 /* Переменные */
 :root {
     /* Light mode */
@@ -45,6 +46,15 @@ html, body {
     min-height: 100vh;
 }
 
+.text-center {
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
 .container {
     margin: 0 auto;
     padding: 0 15px;
@@ -54,4 +64,71 @@ html, body {
 .section {
     padding: 70px 0;
 }
+
+.form-block {
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1140px;
+    border-top: 5px solid #333;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 7px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 7px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 7px 8px 0px rgba(34, 60, 80, 0.2);
+    margin-bottom: 20px;
+}
+
+/* padding */
+.p-1, .pt-1, .pb-1 {
+    padding: 10px;
+}
+.p-2, .pt-2, .pb-2 {
+    padding: 20px;
+}
+.p-3, .pt-3, .pb-3 {
+    padding: 30px;
+}
+.p-4, .pt-4, .pb-4 {
+    padding: 40px;
+}
+.p-5, .pt-5, .pb-5 {
+    padding: 50px;
+}
+
+
+/* padding */
+
+/* margin */
+
+/* margin */
 /* Общие стили */
+
+
+/* Адаптация */
+/* Для устройств с шириной 576px и менее (мобильные устройства портретной ориентации) */
+@media (max-width: 576px) {
+    .form-block {
+        border-radius: 0;
+    }
+  }
+  
+  /* Для устройств с шириной от 577px до 768px (планшеты в портретной ориентации) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    
+  }
+  
+  /* Для устройств с шириной от 769px до 992px (планшеты в альбомной ориентации и небольшие ноутбуки) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    
+  }
+  
+  /* Для устройств с шириной от 993px до 1200px (стандартные ноутбуки и настольные мониторы) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+    
+  }
+  
+  /* Для устройств с шириной 1201px и более (большие настольные мониторы и широкоэкранные устройства) */
+  @media (min-width: 1201px) {
+    
+  }
+/* Адаптация */

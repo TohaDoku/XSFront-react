@@ -42,6 +42,7 @@ ul.logo-nav-wrapper li.main-nav-li {
 ul.logo-nav-wrapper li.main-nav-li a {
     cursor: pointer;
     transition: color .6s ease;
+    color: #7c7d7d;
 }
 
 ul.logo-nav-wrapper li.main-nav-li a.active {
@@ -78,12 +79,32 @@ ul.logo-nav-wrapper li.main-nav-li a:hover {
     div.mobile-menu ul.logo-nav-wrapper li {
         text-align: center;
         margin-right: 0;
-        padding: 25px;
         border-top: 1px solid #eeeff0;
+        width: 20%;
+        min-height: 52px;
     }
 
     div.mobile-menu ul.logo-nav-wrapper li a svg {
-        width: 40px;
+        width: 28px;
+        color: #111;
+        opacity: .4;
+    }
+
+    div.mobile-menu ul.logo-nav-wrapper li a.active svg {
+        color: #336fee;
+        border-radius: 50%;
+        opacity: .8;
+    }
+
+    div.mobile-menu ul.logo-nav-wrapper li a .mobile-menu-text {
+        color: #111;
+        opacity: .4;
+        font-size: 11px;
+    }
+
+    div.mobile-menu ul.logo-nav-wrapper li a.active .mobile-menu-text {
+        color: #336fee;
+        opacity: .8;
     }
   }
   

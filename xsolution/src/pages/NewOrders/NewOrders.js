@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import Header from '../../components/header/Header'
 
-export class Main extends Component {
+export class NewOrders extends Component {
   render() {
     return (
       <>
         <Header />
-        <hr /> 
+        <hr />
         <div className='container'>
-          <p>МОИ ЗАКАЗЫ</p>
-          Основная страница Сюда юзер попадает если уже зареган
+          НОВЫЕ ЗАКАЗЫЫЫ
         </div>
       </>
     )
   }
 }
 
-export default Main
+export default NewOrders

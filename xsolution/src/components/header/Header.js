@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import BtnDarkMode from '../btnDarkMode/BtnDarkMode'
 
+import { NavLink } from 'react-router-dom'
+
 import './Header.css'
 import logo from './logo.webp'
 import profile from './profile.png'
@@ -14,26 +16,36 @@ export class Header extends Component {
 
                 <div className='logo-nav-wrapper'>
 
-                    <a>
+                    <NavLink to='/'>
                       <img className='logo-img' src={logo} />
-                    </a>
-
+                    </NavLink>  
+                     
                     <nav className='main-nav'>
                         <ul className='logo-nav-wrapper'>
                             <li className='main-nav-li'>
-                              <a className='active'>Новый заказ</a>
+                              <NavLink to='/main-page'>
+                                Мои заказы
+                              </NavLink>
                             </li>
                             <li className='main-nav-li'>
-                              <a>Мои заказы</a>
+                              <NavLink to='/new-orders'>
+                                Новые заказы
+                              </NavLink>  
                             </li>
                             <li className='main-nav-li'>
-                              <a>Профиль</a>
+                              <NavLink to='/new-order'>
+                                Новый заказ
+                              </NavLink>  
                             </li>
                             <li className='main-nav-li'>
-                              <a>Вопросы ответы</a>
+                              <NavLink to='/chats'>
+                                Чаты
+                              </NavLink>
                             </li>
                             <li className='main-nav-li'>
-                              <a>Поддержка</a>
+                              <NavLink to='/bonus'>
+                                Бонусы
+                              </NavLink>
                             </li>
                         </ul>
                     </nav>
@@ -51,44 +63,34 @@ export class Header extends Component {
         <div className='mobile-menu'>
             <ul className='logo-nav-wrapper'>
                 <li>
-                  <a className='active'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-filter-circle" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                      <path d="M7 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                  </a>
+                  <NavLink to='/main-page'>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><linearGradient id="dsId_rFplq5syIN0_linear_1524_1627" x1="14.5" y1="6" x2="22.725" y2="19.595" gradientUnits="userSpaceOnUse"><stop ></stop><stop offset="1" ></stop></linearGradient></defs><path   d="M1.5 8.5a4 4 0 0 1 4-4H18l-4 15H1.5v-11Zm4.5 6a2 2 0 0 0-2 2h3.5a2 2 0 0 0 2-2H6Z" fill="currentColor"></path><path d="M18 4.5h4.5v11a4 4 0 0 1-4 4H14l4-15Z" fill="url(#dsId_rFplq5syIN0_linear_1524_1627)"></path></svg>
+                    <p className='mobile-menu-text'>Мои заказы</p>
+                  </NavLink>
                 </li>
                 <li>
-                  <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
-                      <path d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z"/>
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
-                    </svg>
-                  </a>
+                  <NavLink to='/new-orders'>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><path opacity=".85"   d="M3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0Zm9 4.75a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5Z" fill="currentColor"></path><circle opacity=".35" cx="12" cy="12" r="4.75" fill="currentColor"></circle></svg>
+                    <p className='mobile-menu-text'>Новые заказы</p>
+                  </NavLink>
                 </li>
                 <li>
-                  <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-circle" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                  </a>
+                  <NavLink to='/new-order'>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><linearGradient id="dsId_n1IIiZDgFb0_linear_34655_63529" x1="21" y1="12" x2="6.357" y2="19.995" gradientUnits="userSpaceOnUse"><stop  ></stop><stop offset="1" ></stop></linearGradient></defs><path d="M3 12h18l-2.587 6.714a2 2 0 0 1-1.867 1.281H7.287a2 2 0 0 1-1.881-1.321L3 12Z" fill="url(#dsId_n1IIiZDgFb0_linear_34655_63529)"></path><path d="M1.5 10a1 1 0 0 1 1-1h19a1 1 0 0 1 1 1v2h-21v-2Z" fill="currentColor"></path><path d="M9.21 7.322A2.5 2.5 0 0 0 8 4L5.67 9h2.758l.782-1.678ZM18.327 9h-2.759l-.783-1.68a2.5 2.5 0 0 1 1.21-3.322L18.326 9Z" fill="currentColor"></path></svg>
+                    <p className='mobile-menu-text'>Новый заказ</p>
+                  </NavLink>
                 </li>
                 <li>
-                  <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                      <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
-                    </svg>
-                  </a>
+                  <NavLink to='/chats'>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><linearGradient id="dsId_8hlAA4YFJG0_linear_1525_566" x1="11.75" y1="4.5" x2="22.689" y2="22.583" gradientUnits="userSpaceOnUse"><stop ></stop><stop offset="1" ></stop></linearGradient></defs><path   d="M1.5 4.5h16A4.5 4.5 0 0 1 22 9v14l-2.244-2.409A5 5 0 0 0 16.098 19H6a4.5 4.5 0 0 1-4.5-4.5v-10ZM6 11a3 3 0 0 1 3-3h8a3 3 0 0 1-3 3H6Zm3 2a3 3 0 0 0-3 3h4a3 3 0 0 0 3-3H9Z" fill="url(#dsId_8hlAA4YFJG0_linear_1525_566)"></path><path opacity=".3" d="M6 16a3 3 0 0 1 3-3h4a3 3 0 0 1-3 3H6Z" fill="currentColor"></path></svg>
+                    <p className='mobile-menu-text'>Чаты</p>
+                  </NavLink>
                 </li>
                 <li>
-                  <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-question-circle" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                    </svg>
-                  </a>
+                  <NavLink to='/bonus'> 
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"><path opacity=".6" d="M1 11a3 3 0 0 1 6 0v1a3 3 0 0 1-3 3H1v-4Z" fill="currentColor"></path><path opacity=".75" d="M9 11a3 3 0 1 1 6 0v1a3 3 0 0 1-3 3H9v-4Z" fill="currentColor"></path><path d="M17 11a3 3 0 1 1 6 0v1a3 3 0 0 1-3 3h-3v-4Z" fill="currentColor"></path></svg>
+                    <p className='mobile-menu-text'>Бонусы</p>
+                  </NavLink>
                 </li>
             </ul>
         </div>
