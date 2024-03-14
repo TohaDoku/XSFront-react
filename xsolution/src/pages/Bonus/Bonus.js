@@ -6,7 +6,6 @@ export class Bonus extends Component {
     return (
       <>
       <Header />
-      <hr />
       <div className='container'>
         БОНУСЫ
       </div>

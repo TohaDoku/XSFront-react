@@ -6,7 +6,6 @@ export class Main extends Component {
     return (
       <>
         <Header />
-        <hr /> 
         <div className='container'>
           <p>МОИ ЗАКАЗЫ</p>
           Основная страница Сюда юзер попадает если уже зареган

@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import Header from '../../components/header/Header'
 
-export class Chats extends Component {
+export class Profile extends Component {
   render() {
     return (
       <>
         <Header />
-        <div className='container'>
-          ЧАТЫ
+        <div className='container text-center'>
+          <h2 className='p-3'>Мой профиль</h2>
         </div>
       </>
     )
   }
 }
 
-export default Chats
+export default Profile

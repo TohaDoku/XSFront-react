@@ -12,7 +12,7 @@ export class Header extends Component {
     return (
       <>
         <div className='header-wrapper'>
-            <header className='container nav-wrapper'>
+            <div className='container nav-wrapper'>
 
                 <div className='logo-nav-wrapper'>
 
@@ -51,13 +51,14 @@ export class Header extends Component {
                     </nav>
 
                 </div>
-
-                <div className='logo-nav-wrapper profile'>
-                  <p className='main-nav '>Антон</p>
-                  <img className='profile-img' src={profile} />
-                </div>
-
-            </header>
+                
+                <NavLink to='/profile'>
+                  <div className='logo-nav-wrapper profile'>
+                    <p className='main-nav '>Антон</p>
+                    <img className='profile-img' src={profile} />
+                  </div>
+                </NavLink>
+            </div>
         </div>
 
         <div className='mobile-menu'>

@@ -1,9 +1,9 @@
 .header-wrapper {
     background: #eeeff0;
     height: 78px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
     font-size: 14px;
     color: #7c7d7d;
     position: relative;
@@ -11,15 +11,15 @@
 
 .nav-wrapper {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
 }
 
 .logo-nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
 }
 
 .logo-img {
@@ -33,6 +33,10 @@
     min-width: 32px;
     height: 32px;
     border-radius: 10px;
+}
+
+ul.logo-nav-wrapper {
+    margin-bottom: 0;
 }
 
 ul.logo-nav-wrapper li.main-nav-li {
@@ -61,6 +65,7 @@ ul.logo-nav-wrapper li.main-nav-li a:hover {
 
 .profile p {
     margin-right: 10px;
+    margin-bottom: 0;
 }
 
 /* Для устройств с шириной 576px и менее (мобильные устройства портретной ориентации) */
@@ -70,18 +75,28 @@ ul.logo-nav-wrapper li.main-nav-li a:hover {
         display: none;
     }
 
+    .mobile-menu {
+        background: #fff;
+    }
+    
+    ul.logo-nav-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+
     div.mobile-menu {
         position: absolute;
         bottom: 0;
         width: 100%;
+        border-top: 1px solid #dddcdc;
     }
 
     div.mobile-menu ul.logo-nav-wrapper li {
         text-align: center;
         margin-right: 0;
-        border-top: 1px solid #eeeff0;
         width: 20%;
         min-height: 52px;
+        margin-top: 5px;
     }
 
     div.mobile-menu ul.logo-nav-wrapper li a svg {
@@ -105,6 +120,10 @@ ul.logo-nav-wrapper li.main-nav-li a:hover {
     div.mobile-menu ul.logo-nav-wrapper li a.active .mobile-menu-text {
         color: #336fee;
         opacity: .8;
+    }
+
+    .mobile-menu-text {
+        margin-bottom: 0;
     }
   }
   
