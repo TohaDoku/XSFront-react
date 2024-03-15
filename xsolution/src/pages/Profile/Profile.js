@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Header from '../../components/header/Header'
 
+import './Profile.css'
+
 export class Profile extends Component {
   render() {
     return (

@@ -88,7 +88,7 @@ export class NewOrder2 extends Component {
             </Col>
 
 
-            <Col md={{ span: 6, offset: 3 }}>
+            <Col className='mb-5' md={{ span: 6, offset: 3 }}>
                 <NavLink to='/new-orders'>
                     <Button className='w-100' variant="warning">Оформить заказ</Button>
                 </NavLink>
