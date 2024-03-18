@@ -11,6 +11,9 @@ import NewOrders from "./pages/NewOrders/NewOrders";
 import Chats from "./pages/Chats/Chats";
 import Bonus from "./pages/Bonus/Bonus";
 import Profile from "./pages/Profile/Profile";
+import Profile2 from "./pages/Profile/Profile2";
+import Order from "./pages/Order/Order";
+import OrderWorks from "./pages/Order/OrderWorks";
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
                 <Route path="/chats" element={<Chats />} />
                 <Route path="/bonus" element={<Bonus />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/profile-edit" element={<Profile2 />} />
+                <Route path="/order" element={<Order />} />
+                <Route path="/order-works" element={<OrderWorks />} />
             </Routes>
         </Router>
     </div>

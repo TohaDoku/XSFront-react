@@ -47,7 +47,9 @@ export class NewOrders extends Component {
                   </div>
                   <p>Ожидает оплаты</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -56,7 +58,9 @@ export class NewOrders extends Component {
                   </div>
                   <p>Ожидает оплаты</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -65,7 +69,9 @@ export class NewOrders extends Component {
                   </div>
                   <p>Ожидает оплаты</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -74,7 +80,9 @@ export class NewOrders extends Component {
                   </div>
                   <p>Ожидает оплаты</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
               </ul>
               

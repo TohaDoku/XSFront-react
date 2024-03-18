@@ -1,0 +1,43 @@
+.main-profile-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.main-profile-block .dop-block {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main-profile-block .dop-block img {
+    width: 96px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.main-profile-block a {
+    color: #333;
+    background: #ffdd2d;
+    padding: 10px 15px;
+    height: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.btn-outline-success {
+    border: 1px solid #00b92d;
+    background: #f6f7f8!important;
+}
+
+.btn-outline-success:hover {
+    background: #e2eee7 !important;
+}
+
+.profile-container {
+    padding-bottom: 70px;
+}
+

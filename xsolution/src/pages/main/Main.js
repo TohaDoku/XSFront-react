@@ -29,7 +29,9 @@ export class Main extends Component {
                   </div>
                   <p>Первичная обработка</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -38,7 +40,9 @@ export class Main extends Component {
                   </div>
                   <p>Регулярная работа</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -47,7 +51,9 @@ export class Main extends Component {
                   </div>
                   <p>Заказ в работе</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
                 <li>
                   <div>
@@ -56,7 +62,9 @@ export class Main extends Component {
                   </div>
                   <p>Ожидает закрытия</p>
                   <p>29 сентября 2019 в 17:00</p>
-                  <a>Посмотреть</a>
+                  <NavLink to='/order'>
+                    Посмотреть
+                  </NavLink>
                 </li>
               </ul>
               
