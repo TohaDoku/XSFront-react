@@ -8,8 +8,6 @@ import './style.css';
 import { IoClose } from "react-icons/io5";
 import { SlArrowRight } from "react-icons/sl";
 
-const domen = 'https://www.bigozo.ru';
-
 const Login1 = () => {
   const navigate = useNavigate();
 
