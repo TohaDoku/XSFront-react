@@ -12,24 +12,30 @@
 }
 
 .main-chat-div {
-    height: 100vh;
-    overflow: hidden!important;
+    min-height: 100vh;
     position: relative;
     background: #fff;
+    padding-top: 80px; /* Добавляем отступ, равный высоте шапки */
 }
 
-.chats-header {
+.chat-header {
+    position: fixed; /* Меняем на фиксированное позиционирование */
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 10px;
+    margin: 0;
+    padding: 20px 10px;
+    background: #fff;
+    z-index: 1; /* Устанавливаем z-index, чтобы шапка была поверх других элементов */
 }
 
-.chats-header .svg-close {
+.chat-header .svg-close {
     width: 26px;
 }
 
-.chats-header h4 {
+.chat-header h4 {
     margin: 0;
 }
 
@@ -57,24 +63,19 @@
 .chat-body {
     border-radius: 5px;
     padding: 10px;
-     /* Вы можете настроить максимальную высоту в зависимости от вашего макета */
-    max-height: 82vh;
     overflow-y: scroll;
-    position: absolute;
-    left: 0;
-    top: 80px;
-    width: 100%;
+    height: calc(100vh - 160px); /* 100vh минус высота шапки (80px) и футера (80px) */
 }
 
 .chat-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
 }
 
 .chat-file, .chat-send {
