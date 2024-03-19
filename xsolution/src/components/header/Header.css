@@ -92,6 +92,7 @@ ul.logo-nav-wrapper li.main-nav-li a:hover {
         bottom: 0;
         width: 100%;
         border-top: 1px solid #dddcdc;
+        z-index: 999;
     }
 
     div.mobile-menu ul.logo-nav-wrapper li {
