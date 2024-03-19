@@ -66,7 +66,7 @@ export class Profile2 extends Component {
                                 controlId="floatingInput"
                                 label="Номер телефона"
                             >
-                                <Form.Control type="text" value='89229270146' placeholder="name@example.com" required />
+                                <Form.Control type="text" value='89229270146' placeholder="name@example.com" disabled />
                             </FloatingLabel>
                             <p>Чтобы привязать новый телефон, позвоните нам: 8 (495) 487-01-77. Звонок бесплатный</p>
                         </Col>

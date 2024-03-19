@@ -1,0 +1,145 @@
+#root {
+    height: 100vh;
+    overflow-y: hidden;
+    padding-bottom: 140px;
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.main-chat-div {
+    height: 100vh;
+    overflow: hidden!important;
+    position: relative;
+    background: #fff;
+}
+
+.chats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px;
+}
+
+.chats-header .svg-close {
+    width: 26px;
+}
+
+.chats-header h4 {
+    margin: 0;
+}
+
+.chats-header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.chats-header-logo svg {
+    width: 18px;
+    color: grey;
+}
+
+.chats-header-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.link-chat-p {
+    margin-bottom: 0;
+}
+
+.chat-body {
+    border-radius: 5px;
+    padding: 10px;
+     /* Вы можете настроить максимальную высоту в зависимости от вашего макета */
+    max-height: 82vh;
+    overflow-y: scroll;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100%;
+}
+
+.chat-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.chat-file, .chat-send {
+    width: 15%;
+}
+
+.chat-input {
+    width: 70%;
+}
+
+.chat-file svg {
+    padding: 5px;
+    width: 40px;
+    color: grey;
+    background: #f6f7f8;
+    border-radius: 50%;
+}
+
+.chat-input input {
+    background: #f6f7f8;
+    height: 40px;
+    width: 100%;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+
+.chat-send {
+    text-align: right;
+}
+
+.chat-send svg {
+    padding: 5px;
+    width: 40px;
+    background: #c4ddfc;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.user {
+    text-align: right;
+}
+
+.message.other {
+    text-align: left;
+}
+
+.message-text {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 8px 12px;
+    display: inline-block;
+    max-width: 70%;
+}
+
+.message-timestamp {
+    font-size: 0.8em;
+    color: #999;
+}

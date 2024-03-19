@@ -14,6 +14,7 @@ import Profile from "./pages/Profile/Profile";
 import Profile2 from "./pages/Profile/Profile2";
 import Order from "./pages/Order/Order";
 import OrderWorks from "./pages/Order/OrderWorks";
+import Chat from "./pages/Chat/Chat";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/profile-edit" element={<Profile2 />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/order-works" element={<OrderWorks />} />
+                <Route path="/chat/:id" element={<Chat />} />
             </Routes>
         </Router>
     </div>
