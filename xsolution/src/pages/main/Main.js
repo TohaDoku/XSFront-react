@@ -1,84 +1,82 @@
-import React, { Component } from 'react'
-import Header from '../../components/header/Header'
+import React, { Component } from 'react';
+import Header from '../../components/header/Header';
 import { GoChecklist } from "react-icons/go";
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { NavLink } from 'react-router-dom';
 
+import API_URL from '../../config'; // Импорт адреса API
 
 export class Main extends Component {
-  render() {
-    return (
-      <>
-        <Header />
-        <div className='container'>
-          <h2 className='mt-3 mb-3'>Мои заказы</h2>
-          <Tabs
-            defaultActiveKey="home"
-            id="uncontrolled-tab-example"
-            className="mb-4"
-          >
-            <Tab eventKey="home" title="Активные">
-              
-              <ul className='order-list'>
-                <li>
-                  <div>
-                    <GoChecklist />
-                    <p>#4423</p>
-                  </div>
-                  <p>Первичная обработка</p>
-                  <p>29 сентября 2019 в 17:00</p>
-                  <NavLink to='/order'>
-                    Посмотреть
-                  </NavLink>
-                </li>
-                <li>
-                  <div>
-                    <GoChecklist />
-                    <p>#4423</p>
-                  </div>
-                  <p>Регулярная работа</p>
-                  <p>29 сентября 2019 в 17:00</p>
-                  <NavLink to='/order'>
-                    Посмотреть
-                  </NavLink>
-                </li>
-                <li>
-                  <div>
-                    <GoChecklist />
-                    <p>#4423</p>
-                  </div>
-                  <p>Заказ в работе</p>
-                  <p>29 сентября 2019 в 17:00</p>
-                  <NavLink to='/order'>
-                    Посмотреть
-                  </NavLink>
-                </li>
-                <li>
-                  <div>
-                    <GoChecklist />
-                    <p>#4423</p>
-                  </div>
-                  <p>Ожидает закрытия</p>
-                  <p>29 сентября 2019 в 17:00</p>
-                  <NavLink to='/order'>
-                    Посмотреть
-                  </NavLink>
-                </li>
-              </ul>
-              
-            </Tab>
+  constructor(props) {
+    super(props);
+    this.state = {
+      orders: []
+    };
+  }
 
-            <Tab eventKey="profile" title="Закрытые">
-              <h3 className='mb-4'>У вас пока нет закрытых заказов</h3>
-            </Tab>
-          </Tabs>
-          
-        </div>
-      </>
-    )
+  async componentDidMount() {
+    try {
+      const accessToken = localStorage.getItem('accessToken'); // Токен доступа, замени на свой
+      const ordersResponse = await fetch(`${API_URL}/orders/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ value: "current" })
+      });
+      if (ordersResponse.ok) {
+        const ordersData = await ordersResponse.json();
+        this.setState({ orders: ordersData.orders });
+      } else {
+        console.error('Failed to fetch orders:', ordersResponse.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching orders:', error);
+    }
+  }
+
+  render() {
+    const { orders } = this.state;
+
+    return (
+        <>
+          <Header />
+          <div className='container header-padding'>
+            <h2 className='mt-3 mb-3'>Мои заказы</h2>
+
+            <Tabs
+                defaultActiveKey="home"
+                id="uncontrolled-tab-example"
+                className="mb-4"
+            >
+              <Tab eventKey="home" title="Активные">
+                <ul className='order-list'>
+                  {orders.map(order => (
+                      <li key={order.order_id}>
+                        <div>
+                          <GoChecklist />
+                          <p>#{order.order_id}</p>
+                        </div>
+                        <p>{order.status}</p>
+                        <p>{order.date_created}</p>
+                        <NavLink to={`/order/${order.order_id}`}>
+                          Посмотреть
+                        </NavLink>
+                      </li>
+                  ))}
+                </ul>
+              </Tab>
+
+              <Tab eventKey="profile" title="Закрытые">
+                <h3 className='mb-4'>У вас пока нет закрытых заказов</h3>
+              </Tab>
+            </Tabs>
+          </div>
+        </>
+    );
   }
 }
 
-export default Main
+export default Main;

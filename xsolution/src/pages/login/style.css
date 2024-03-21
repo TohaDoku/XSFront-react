@@ -53,7 +53,7 @@
 }
 
 .login-close svg {
-    font-size: 26px;    
+    font-size: 26px;
     color: #686969;
     z-index: 12;
 }
@@ -98,7 +98,7 @@
 /* Плавающие инпуты */
 .form-inline {
     margin-top: 24px;
-    display: flex;    
+    display: flex;
 }
 
 .form-group {
@@ -163,10 +163,6 @@
 
 /* Медиазапрос для экранов с максимальной шириной 600px */
 @media (max-width: 600px) {
-    * {
-        overflow: hidden;
-    }
-
     .login-id {
         position:fixed;
         z-index: 12;
@@ -180,7 +176,7 @@
         right: 10px;
         top: 15px;
     }
-    
+
     .login-main-block {
         background-color: var(--card-bg);
         color: var(--text-color);
@@ -190,9 +186,9 @@
         padding-top: 75%;
         overflow-y: hidden;
     }
-    
+
     .form-inline {
-        display: block;    
+        display: block;
         padding: 30px;
     }
 

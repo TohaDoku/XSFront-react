@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; // Используйте правильный импорт для компонента Link
 import { IoClose } from "react-icons/io5";
-import './Chats.css'; // Подключаем файл со стилями
 
 export class Chats extends Component {
     render() {

@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import './style.css';
 import logo from '../../img/icons/mini_logo.svg';
 import { SlArrowRight } from "react-icons/sl";
+import API_URL from '../../config'; // Импорт адреса API
 
 const SuccessPage = () => {
   const location = useLocation();
@@ -28,38 +29,57 @@ const SuccessPage = () => {
     setCountdown(45);
   };
 
+  let accessToken; // Объявляем переменную accessToken перед использованием
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const formData = new URLSearchParams();
       formData.append('phone_number', phone);
       formData.append('verification_code', values.code);
-  
+
       console.log(phone)
       console.log(values.code)
-  
-      const response = await fetch('https://www.bigozo.ru/api/verify-code/', {
+
+      const response = await fetch(`${API_URL}/verify-code/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: formData.toString(),
       });
-  
+
       console.log(response)
-  
+
       if (response.status === 200) {
         const responseData = await response.json(); // Получаем данные из тела ответа
-  
+
         if (responseData.message) {
           console.log('Сообщение от сервера:', responseData);
         }
 
-        if (responseData.message === 'Пользователь успешно авторизован') {
+        // Сохраняем параметры refresh и access в Local Storage
+        localStorage.setItem('refreshToken', responseData.refresh);
+        localStorage.setItem('accessToken', responseData.access);
+        accessToken = responseData.access; // Присваиваем значение accessToken
+
+        // Отправляем запрос на api/orders
+        const ordersResponse = await fetch(`${API_URL}/orders/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+          body: JSON.stringify({ value: "current" })
+        });
+
+        if (ordersResponse.status === 200) {
+          // Если запрос на api/orders успешен, переходим на страницу /main-page
           navigate('/main-page');
         } else {
-          navigate('/new-order');
+          // В случае ошибки при запросе на api/orders, обрабатываем ее
+          setError('Ошибка при получении заказов');
         }
-          
+
       } else {
         setError('Неверный код');
       }
@@ -119,7 +139,7 @@ const SuccessPage = () => {
                         )}
                       </Field>
                     <ErrorMessage name="code" component="div" className="error-message" />
-                  </div>  
+                  </div>
                   <button type="submit" className={`btn-login ${isSubmitting ? 'disabled' : ''}`}>
                       {isMobile ? 'Продолжить' : <SlArrowRight />}
                   </button>
@@ -129,7 +149,7 @@ const SuccessPage = () => {
                 ) : (
                   <button type="button" className='countdown-send' onClick={resendCode}>Отправить повторно</button>
                 )}
-                
+
                 {error && <div className="error-message">{error}</div>}
               </Form>
             )}

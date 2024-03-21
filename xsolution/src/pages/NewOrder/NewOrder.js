@@ -73,81 +73,84 @@ class NewOrder extends Component {
 
     return (
       <>
-        <Header />
-        <div className='container text-center'>
-          <h2 className='p-3 mt-4'>Сделать новый заказ</h2>
-        </div>
-        <div className='form-block'>
-          <Row className="">
 
-          <Col md={{ span: 6, offset: 3 }}>
-            <span className="percent-complete">
-                <span className="complete">Уже заполнено</span>
-                <span className="percent">30%</span>
-            </span>
-          </Col>
+                <Header />
+                <div className='container header-padding text-center'>
+                  <h2 className='p-3 mt-4'>Сделать новый заказ</h2>
 
-          <Col md={{ span: 6, offset: 3 }}>
-            <ProgressBar variant="success" now={30} />
-          </Col>
+                <div className='form-block'>
+                  <Row className="">
 
-          <Col className='mb-3' md={{ span: 6, offset: 3 }}>
-            <span className="complete">+70% за контактную информацию</span>
-          </Col>
+                  <Col md={{ span: 6, offset: 3 }}>
+                    <span className="percent-complete">
+                        <span className="complete">Уже заполнено</span>
+                        <span className="percent">30%</span>
+                    </span>
+                  </Col>
 
-          <Col md={{ span: 6, offset: 3 }}>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Имя"
-              className="mb-3 custom-input-main"
-            >
-              <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
-            </FloatingLabel>
-          </Col>
+                  <Col md={{ span: 6, offset: 3 }}>
+                    <ProgressBar variant="success" now={30} />
+                  </Col>
 
-          <Col md={{ span: 6, offset: 3 }}>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="ВУЗ"
-              className="mb-3"
-            >
-              <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
-            </FloatingLabel>
-          </Col>
+                  <Col className='mb-3' md={{ span: 6, offset: 3 }}>
+                    <span className="complete">+70% за контактную информацию</span>
+                  </Col>
 
-            <Col md={{ span: 6, offset: 3 }}>
-              <FloatingLabel
-                controlId="floatingSelectGrid"
-                label="Тип услуги"
-                className="mb-3"
-              >
-                <Form.Select className="custom-input-main" aria-label="Floating label select example" onChange={this.handleServiceTypeChange}>
-                  <option>Выберите тип услуги</option>
-                  <option value="1">Комплексная помощь</option>
-                  <option value="2">Отдельные работы и дисциплины</option>
-                  <option value="3">Репетиторство и онлайн помощь</option>
-                </Form.Select>
-              </FloatingLabel>
-            </Col>
+                  <Col md={{ span: 6, offset: 3 }}>
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="Имя"
+                      className="mb-3 custom-input-main"
+                    >
+                      <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                    </FloatingLabel>
+                  </Col>
 
-            <Col md={{ span: 6, offset: 3 }}>
-              <FloatingLabel
-                controlId="floatingSelectGrid"
-                label="Услуга"
-                className="mb-3"
-              >
-                <Form.Select className="custom-input-main" aria-label="Floating label select example" onChange={this.handleServiceChange}>
-                  {serviceOptions}
-                </Form.Select>
-              </FloatingLabel>
-            </Col>
+                  <Col md={{ span: 6, offset: 3 }}>
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="ВУЗ"
+                      className="mb-3"
+                    >
+                      <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                    </FloatingLabel>
+                  </Col>
 
-            <Col md={{ span: 6, offset: 3 }}>
-              <NavLink to='/new-order-next'>
-              <Button className='w-100' variant="warning">Продолжить</Button></NavLink>
-            </Col>
-          </Row>
-        </div>
+                    <Col md={{ span: 6, offset: 3 }}>
+                      <FloatingLabel
+                        controlId="floatingSelectGrid"
+                        label="Тип услуги"
+                        className="mb-3"
+                      >
+                        <Form.Select className="custom-input-main" aria-label="Floating label select example" onChange={this.handleServiceTypeChange}>
+                          <option>Выберите тип услуги</option>
+                          <option value="1">Комплексная помощь</option>
+                          <option value="2">Отдельные работы и дисциплины</option>
+                          <option value="3">Репетиторство и онлайн помощь</option>
+                        </Form.Select>
+                      </FloatingLabel>
+                    </Col>
+
+                    <Col md={{ span: 6, offset: 3 }}>
+                      <FloatingLabel
+                        controlId="floatingSelectGrid"
+                        label="Услуга"
+                        className="mb-3"
+                      >
+                        <Form.Select className="custom-input-main" aria-label="Floating label select example" onChange={this.handleServiceChange}>
+                          {serviceOptions}
+                        </Form.Select>
+                      </FloatingLabel>
+                    </Col>
+
+                    <Col md={{ span: 6, offset: 3 }}>
+                      <NavLink to='/new-order-next'>
+                      <Button className='w-100' variant="warning">Продолжить</Button></NavLink>
+                    </Col>
+                  </Row>
+                </div>
+                </div>
+
       </>
     );
   }

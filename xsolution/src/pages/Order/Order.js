@@ -1,104 +1,35 @@
-import React, { Component } from 'react'
-import Header from '../../components/header/Header'
+import React, { Component } from 'react';
+import Header from '../../components/header/Header';
 import { GoChecklist } from "react-icons/go";
-
 import { NavLink } from 'react-router-dom';
 
-
-export class Order extends Component {
+class Order extends Component {
     render() {
+        const { match } = this.props;
+        const orderId = match ? match.params.orderId : null; // Проверяем наличие match перед чтением params
+
         return (
             <>
                 <Header />
-                <div className='container'>
-                    <h2 className='mt-3 mb-3'>Заказ №9438</h2>
-                        <ul className='order-list'>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Математика</p>
-                                </div>
-                                <p>Зачет</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Физика</p>
-                                </div>
-                                <p>Экзамен</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Химия</p>
-                                </div>
-                                <p>Практика</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Информатика</p>
-                                </div>
-                                <p>Курсовая</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Математика</p>
-                                </div>
-                                <p>Зачет</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Физика</p>
-                                </div>
-                                <p>Экзамен</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Химия</p>
-                                </div>
-                                <p>Практика</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                            <li>
-                                <div>
-                                    <GoChecklist />
-                                    <p>Информатика</p>
-                                </div>
-                                <p>Курсовая</p>
-                                <NavLink to='/order-works'>
-                                    Посмотреть
-                                </NavLink>
-                            </li>
-                        </ul>
-
+                <div className='container header-padding'>
+                    <h2 className='mt-3 mb-3'>Заказ #{orderId}</h2>
+                    <ul className='order-list'>
+                        <li>
+                            <div>
+                                <GoChecklist />
+                                <p>Математика</p>
+                            </div>
+                            <p>Зачет</p>
+                            <NavLink to={`/order-works/${orderId}`}>
+                                Посмотреть
+                            </NavLink>
+                        </li>
+                        {/* Другие элементы заказа */}
+                    </ul>
                 </div>
             </>
-        )
+        );
     }
 }
 
-export default Order
+export default Order;

@@ -14,9 +14,9 @@ export class NewOrder2 extends Component {
     return (
       <>
         <Header />
-        <div className='container text-center'>
+        <div className='container header-padding text-center'>
           <h2 className='p-3 mt-4'>Сделать новый заказ</h2>
-        </div>
+
         <div className='form-block'>
           <Row className="">
 
@@ -95,6 +95,7 @@ export class NewOrder2 extends Component {
             </Col>
 
           </Row>
+        </div>
         </div>
       </>
     )

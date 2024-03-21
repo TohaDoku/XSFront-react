@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../../components/header/Header';
-import './Bonus.css';
 
 class Bonus extends Component {
   constructor(props) {
@@ -35,21 +34,23 @@ class Bonus extends Component {
   render() {
     return (
         <>
-          <Header />
-          <div className='container'>
-            <h2>Пригласи друга</h2>
-            <p>Распишите здесь условия бонусов и дайте ссылку для приглашения друзей.</p>
-            {/* Ссылка для копирования */}
-            <a href="#" ref={this.inviteLinkRef} onClick={this.copyLink}>Скопировать ссылку</a>
-            {/* Оповещение о скопированной ссылке */}
-            {this.state.copied && <p>Ссылка скопирована!</p>}
-            <h3>Приглашенные друзья:</h3>
-            <ul>
-              {/* Отображение списка приглашенных друзей */}
-              {this.state.invitedFriends.map((friend, index) => (
-                  <li key={index}>{friend}</li>
-              ))}
-            </ul>
+          <div className='main-chat-div'>
+            <Header />
+            <div className='container header-padding'>
+              <h2>Пригласи друга</h2>
+              <p>Распишите здесь условия бонусов и дайте ссылку для приглашения друзей.</p>
+              {/* Ссылка для копирования */}
+              <a href="#" ref={this.inviteLinkRef} onClick={this.copyLink}>Скопировать ссылку</a>
+              {/* Оповещение о скопированной ссылке */}
+              {this.state.copied && <p>Ссылка скопирована!</p>}
+              <h3>Приглашенные друзья:</h3>
+              <ul>
+                {/* Отображение списка приглашенных друзей */}
+                {this.state.invitedFriends.map((friend, index) => (
+                    <li key={index}>{friend}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </>
     );

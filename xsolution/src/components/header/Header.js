@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import BtnDarkMode from '../btnDarkMode/BtnDarkMode'
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import { NavLink } from 'react-router-dom'
 
-import './Header.css'
+import Container from 'react-bootstrap/Container';
+
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
+
 import logo from './logo.webp'
 import profile from './profile.png'
 
@@ -11,55 +17,48 @@ export class Header extends Component {
   render() {
     return (
       <>
-        <div className='header-wrapper'>
-            <div className='container nav-wrapper'>
-
-                <div className='logo-nav-wrapper'>
-
-                    <NavLink to='/'>
+          <Navbar expand="md" className="bg-body-tertiary">
+              <Container>
+                  <NavLink className='navbar-brand' to='/main-page'>
                       <img className='logo-img' src={logo} />
-                    </NavLink>  
-                     
-                    <nav className='main-nav'>
-                        <ul className='logo-nav-wrapper'>
-                            <li className='main-nav-li'>
-                              <NavLink to='/main-page'>
-                                Мои заказы
-                              </NavLink>
-                            </li>
-                            <li className='main-nav-li'>
-                              <NavLink to='/new-orders'>
-                                Новые заказы
-                              </NavLink>  
-                            </li>
-                            <li className='main-nav-li'>
-                              <NavLink to='/new-order'>
-                                Новый заказ
-                              </NavLink>  
-                            </li>
-                            <li className='main-nav-li'>
-                              <NavLink to='/chats'>
-                                Чаты
-                              </NavLink>
-                            </li>
-                            <li className='main-nav-li'>
-                              <NavLink to='/bonus'>
-                                Бонусы
-                              </NavLink>
-                            </li>
-                        </ul>
-                    </nav>
+                  </NavLink>
+                  <Nav
+                      className="me-auto my-2 my-lg-0"
+                      style={{ maxHeight: '100px' }}
+                      navbarScroll
+                  >
+                      <NavLink className="nav-link" to='/main-page'>
+                          Мои заказы
+                      </NavLink>
+                      <NavLink className="nav-link" to='/new-orders'>
+                          Новые заказы
+                      </NavLink>
+                      <NavLink className="nav-link" to='/new-order'>
+                          Новый заказ
+                      </NavLink>
+                      <NavLink className="nav-link" to='/chats'>
+                          Чаты
+                      </NavLink>
+                      <NavLink className="nav-link" to='/bonus'>
+                          Бонусы
+                      </NavLink>
+                  </Nav>
 
-                </div>
-                
-                <NavLink to='/profile'>
-                  <div className='logo-nav-wrapper profile'>
-                    <p className='main-nav '>Антон</p>
-                    <img className='profile-img' src={profile} />
-                  </div>
-                </NavLink>
-            </div>
-        </div>
+                  <Dropdown className=" mx-2" autoClose={false}>
+                      <Dropdown.Toggle id="dropdown-autoclose-false">
+                          <p className='profile-name'>Антон</p> <img src={profile} alt="" className="profile-img"/>
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                          <Dropdown.Item href="/profile">Профиль</Dropdown.Item>
+                          <Dropdown.Header>Сменить тему:</Dropdown.Header>
+                          <Dropdown.Header><BtnDarkMode /></Dropdown.Header>
+                          <Dropdown.Divider />
+                          <Dropdown.Item href="/">Выход</Dropdown.Item>
+                      </Dropdown.Menu>
+                  </Dropdown>
+              </Container>
+          </Navbar>
 
         <div className='mobile-menu'>
             <ul className='logo-nav-wrapper'>

@@ -7,6 +7,7 @@ import logo from '../../img/icons/mini_logo.svg';
 import './style.css';
 import { IoClose } from "react-icons/io5";
 import { SlArrowRight } from "react-icons/sl";
+import API_URL from '../../config'; // Импорт адреса API
 
 const Login1 = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Login1 = () => {
       const data = new URLSearchParams();
       data.append('phone_number', values.phone);
   
-      const response = await fetch('https://www.bigozo.ru/api/verify-phone/', {
+      const response = await fetch(`${API_URL}/verify-phone/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

@@ -19,7 +19,7 @@ import Chat from "./pages/Chat/Chat";
 function App() {
   return (
     <div className="App">
-        <Router> 
+        <Router>
             <Routes>
                 <Route path="/" element={<Login1 />} />
                 <Route path="/success" element={<Login2 />} />
@@ -31,7 +31,7 @@ function App() {
                 <Route path="/bonus" element={<Bonus />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/profile-edit" element={<Profile2 />} />
-                <Route path="/order" element={<Order />} />
+                <Route path="/order/:orderId" element={<Order />} /> {/* Изменено здесь */}
                 <Route path="/order-works" element={<OrderWorks />} />
                 <Route path="/chat/:id" element={<Chat />} />
             </Routes>
