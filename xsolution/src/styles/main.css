@@ -834,7 +834,7 @@ ul.order-list li a {
     /* Содержимое между шапкой и мобильным меню */
 
     .form-block {
-        border-radius: 0;
+        border-radius: 15px;
     }
 
     ul.order-list {

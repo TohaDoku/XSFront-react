@@ -143,9 +143,43 @@ class NewOrder extends Component {
                       </FloatingLabel>
                     </Col>
 
+                      <Col md={{ span: 6, offset: 3 }}>
+                  <span className="main-radio-span mb-3">
+                      <label className="main-radio-span-one">
+                          <input id="yesRadio" className="custom-input" type="radio" name="showFields" value="yes" />
+                          <span className="input-span-text">Да</span>
+                      </label>
+                      <label className="main-radio-span-two">
+                          <input id="noRadio" className="custom-input" type="radio" name="showFields" value="no" />
+                          <span className="input-span-text">Нет</span>
+                      </label>
+                  </span>
+                      </Col>
+
+                      <Col md={{ span: 6, offset: 3 }}>
+                          <FloatingLabel
+                              controlId="floatingInput"
+                              label="Логин от личного кабинета"
+                              className="mb-3"
+                          >
+                              <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                          </FloatingLabel>
+                      </Col>
+
+                      <Col md={{ span: 6, offset: 3 }}>
+                          <FloatingLabel
+                              controlId="floatingInput"
+                              label="Пароль от личного кабинета"
+                              className="mb-3"
+                          >
+                              <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                          </FloatingLabel>
+                      </Col>
+
                     <Col md={{ span: 6, offset: 3 }}>
-                      <NavLink to='/new-order-next'>
-                      <Button className='w-100' variant="warning">Продолжить</Button></NavLink>
+                      <NavLink to='/new-orders'>
+                        <Button className='w-100' variant="warning">Продолжить</Button>
+                      </NavLink>
                     </Col>
                   </Row>
                 </div>

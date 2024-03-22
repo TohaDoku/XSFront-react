@@ -11,14 +11,17 @@ export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orders: []
+      activeOrders: [],
+      closedOrders: []
     };
   }
 
   async componentDidMount() {
     try {
       const accessToken = localStorage.getItem('accessToken'); // Токен доступа, замени на свой
-      const ordersResponse = await fetch(`${API_URL}/orders/`, {
+
+      // Получение активных заказов
+      const activeOrdersResponse = await fetch(`${API_URL}/orders/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,11 +29,29 @@ export class Main extends Component {
         },
         body: JSON.stringify({ value: "current" })
       });
-      if (ordersResponse.ok) {
-        const ordersData = await ordersResponse.json();
-        this.setState({ orders: ordersData.orders });
+
+      if (activeOrdersResponse.ok) {
+        const activeOrdersData = await activeOrdersResponse.json();
+        this.setState({ activeOrders: activeOrdersData.orders });
       } else {
-        console.error('Failed to fetch orders:', ordersResponse.statusText);
+        console.error('Failed to fetch active orders:', activeOrdersResponse.statusText);
+      }
+
+      // Получение закрытых заказов
+      const closedOrdersResponse = await fetch(`${API_URL}/orders/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ value: "closed" })
+      });
+
+      if (closedOrdersResponse.ok) {
+        const closedOrdersData = await closedOrdersResponse.json();
+        this.setState({ closedOrders: closedOrdersData.orders });
+      } else {
+        console.error('Failed to fetch closed orders:', closedOrdersResponse.statusText);
       }
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -38,7 +59,7 @@ export class Main extends Component {
   }
 
   render() {
-    const { orders } = this.state;
+    const { activeOrders, closedOrders } = this.state;
 
     return (
         <>
@@ -53,7 +74,7 @@ export class Main extends Component {
             >
               <Tab eventKey="home" title="Активные">
                 <ul className='order-list'>
-                  {orders.map(order => (
+                  {activeOrders.map(order => (
                       <li key={order.order_id}>
                         <div>
                           <GoChecklist />
@@ -70,7 +91,25 @@ export class Main extends Component {
               </Tab>
 
               <Tab eventKey="profile" title="Закрытые">
-                <h3 className='mb-4'>У вас пока нет закрытых заказов</h3>
+                {closedOrders.length === 0 ? (
+                    <h3 className='mb-4'>У вас пока нет закрытых заказов</h3>
+                ) : (
+                    <ul className='order-list'>
+                      {closedOrders.map(order => (
+                          <li key={order.order_id}>
+                            <div>
+                              <GoChecklist />
+                              <p>#{order.order_id}</p>
+                            </div>
+                            <p>{order.status}</p>
+                            <p>{order.date_created}</p>
+                            <NavLink to={`/order/${order.order_id}`}>
+                              Посмотреть
+                            </NavLink>
+                          </li>
+                      ))}
+                    </ul>
+                )}
               </Tab>
             </Tabs>
           </div>
