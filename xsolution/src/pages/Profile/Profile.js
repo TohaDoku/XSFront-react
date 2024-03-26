@@ -3,12 +3,11 @@ import Header from '../../components/header/Header'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
-
-
 import profile from './profile.png'
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import {NavLink} from "react-router-dom";
+
 
 export class Profile extends Component {
   render() {

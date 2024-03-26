@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
-import BtnDarkMode from '../btnDarkMode/BtnDarkMode'
 import Dropdown from 'react-bootstrap/Dropdown';
-
 import { NavLink } from 'react-router-dom'
-
 import Container from 'react-bootstrap/Container';
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
-
 import logo from './logo.webp'
 import profile from './profile.png'
 
@@ -51,8 +45,6 @@ export class Header extends Component {
 
                       <Dropdown.Menu>
                           <Dropdown.Item href="/profile">Профиль</Dropdown.Item>
-                          <Dropdown.Header>Сменить тему:</Dropdown.Header>
-                          <Dropdown.Header><BtnDarkMode /></Dropdown.Header>
                           <Dropdown.Divider />
                           <Dropdown.Item href="/">Выход</Dropdown.Item>
                       </Dropdown.Menu>

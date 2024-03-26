@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-const FileInput = () => {
+const FileInput = ({ onChange }) => {
   const inputRef = useRef();
 
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -14,6 +14,7 @@ const FileInput = () => {
     const newFiles = [...selectedFiles];
     newFiles.splice(fileIndex, 1);
     setSelectedFiles(newFiles);
+    onChange(newFiles); // Вызываем функцию обратного вызова и передаем новый массив файлов
   };
 
   const handleOnChange = (event) => {
@@ -25,6 +26,7 @@ const FileInput = () => {
     }
 
     setSelectedFiles(newFiles);
+    onChange(newFiles); // Вызываем функцию обратного вызова и передаем новый массив файлов
   };
 
   const handleDragOver = (e) => {
@@ -48,43 +50,44 @@ const FileInput = () => {
     }
 
     setSelectedFiles(newFiles);
+    onChange(newFiles); // Вызываем функцию обратного вызова и передаем новый массив файлов
   };
 
   return (
-    <div>
-      {/* Hidden file input element */}
-      <input
-        type="file"
-        ref={inputRef}
-        onChange={handleOnChange}
-        style={{ display: "none" }}
-        multiple
-      />
+      <div>
+        {/* Hidden file input element */}
+        <input
+            type="file"
+            ref={inputRef}
+            onChange={handleOnChange}
+            style={{ display: "none" }}
+            multiple
+        />
 
-      {/* Button to trigger the file input dialog */}
-      <div
-        className={`file-btn ${dragging ? "dragging" : ""}`}
-        onClick={onChooseFile}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-      >
-        <span className="main-text-upload">Перетащите файлы</span> до 10 мб
-      </div>
-
-      {selectedFiles.length > 0 && (
-        <div>
-          {selectedFiles.map((file, index) => (
-            <div className="selected-file" key={index}>
-              <p>{file.name}</p>
-              <button onClick={() => removeFile(index)}>
-                <span className="material-symbols-rounded">Удалить</span>
-              </button>
-            </div>
-          ))}
+        {/* Button to trigger the file input dialog */}
+        <div
+            className={`file-btn ${dragging ? "dragging" : ""}`}
+            onClick={onChooseFile}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+        >
+          <span className="main-text-upload">Перетащите файлы</span> до 10 мб
         </div>
-      )}
-    </div>
+
+        {selectedFiles.length > 0 && (
+            <div>
+              {selectedFiles.map((file, index) => (
+                  <div className="selected-file" key={index}>
+                    <p>{file.name}</p>
+                    <button onClick={() => removeFile(index)}>
+                      <span className="material-symbols-rounded">Удалить</span>
+                    </button>
+                  </div>
+              ))}
+            </div>
+        )}
+      </div>
   );
 };
 

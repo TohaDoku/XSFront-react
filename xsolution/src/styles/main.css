@@ -67,11 +67,15 @@ h6 {
     font-weight: 700;
 }
 
+input, select {
+    z-index: 0!important;
+}
 
 /* Общие стили для всех экранов */
 /* Шапка */
 .navbar {
     box-shadow: var(--shadow);
+    z-index: 99;
 }
 
 .logo-img {
@@ -211,7 +215,7 @@ span.main-radio-span {
 
 }
 
-label {
+label.main-radio-span-one, label.main-radio-span-two {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;

@@ -35,6 +35,26 @@ export class NewOrder2 extends Component {
               <span className="complete">+70% за контактную информацию</span>
             </Col>
 
+              <Col md={{ span: 6, offset: 3 }}>
+                  <FloatingLabel
+                      controlId="floatingInput"
+                      label="Имя"
+                      className="mb-3 custom-input-main"
+                  >
+                      <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                  </FloatingLabel>
+              </Col>
+
+              <Col md={{ span: 6, offset: 3 }}>
+                  <FloatingLabel
+                      controlId="floatingInput"
+                      label="ВУЗ"
+                      className="mb-3"
+                  >
+                      <Form.Control className="custom-input-main" type="text" placeholder="ВУЗ" />
+                  </FloatingLabel>
+              </Col>
+
             <Col md={{ span: 6, offset: 3 }}>
               <h3 className='text-center h4'><b>Обучение проходит в личном кабинете?</b></h3>
             </Col>
