@@ -15,6 +15,8 @@ import Profile2 from "./pages/Profile/Profile2";
 import Order from "./pages/Order/Order";
 import OrderWorks from "./pages/Order/OrderWorks";
 import Chat from "./pages/Chat/Chat";
+import NewOrderPage from "./pages/NewOrderPage/NewOrderPage";
+import ArchiveOrderPage from "./pages/ArchiveOrderPage/ArchiveOrderPage";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
                 <Route path="/order/:orderId" element={<Order />} /> {/* Изменено здесь */}
                 <Route path="/order-works" element={<OrderWorks />} />
                 <Route path="/chat/:id" element={<Chat />} />
+                <Route path="/new-order-page/:id" element={<NewOrderPage />} />
+                <Route path="/archive-order-page/:id" element={<ArchiveOrderPage />} />
             </Routes>
         </Router>
     </div>

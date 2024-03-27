@@ -44,29 +44,10 @@ const NewOrderPage = () => {
         <>
             <Header />
             <div className='container header-padding'>
-                <h2 className='mt-3 mb-3'>Новый заказ № {id ? id : 'Loading...'}</h2>
-                {order && order.status === "Необходим расчет" && (
-                    <p>Менеджер уже занимается Вашим заказом и скоро свяжется для подробных уточнений</p>
-                )}
-                {order && (order.status === "Расчет произведен") && (
+                <h2 className='mt-3 mb-3'>Архивный заказ № {id ? id : 'Loading...'}</h2>
+
+                {order && (order.status === "Архив") && (
                     <>
-                        <p>Производится расчет по дисциплинам:</p>
-                        <ul className='order-list'>
-                            {order.disciplines && order.disciplines.length > 0 && order.disciplines.map((discipline) => (
-                                <li key={discipline.discipline_id}>
-                                    <div>
-                                        <GoChecklist />
-                                        <p>{discipline.name}</p>
-                                    </div>
-                                    <p>{discipline.status}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </>
-                )}
-                {order && (order.status === "Счет выставлен") && (
-                    <>
-                        <p>Счет на уточнении:</p>
                         <ul className='order-list'>
                             {order.disciplines && order.disciplines.length > 0 && order.disciplines.map((discipline) => (
                                 <li key={discipline.discipline_id}>
@@ -79,15 +60,9 @@ const NewOrderPage = () => {
                             ))}
                         </ul>
                         <hr/>
-                        <div className="payment-block">
-                            <div className="payment-info">
-                                <div className="payment-info-one"><p className="payment-info-description">Стоимость заказа: </p><p><s>100500 ₽</s></p></div>
-                                <div className="payment-info-two"><p className="payment-info-description">С учетом скидки: </p><p>{order.billing_price} ₽</p></div>
-                                <div className="payment-info-free"><p className="payment-info-description">Скидка: </p><p>20500 ₽</p></div>
-                            </div>
-                            <div className="payment-link-block">
-                                <button className="btn-warning payment-link">Перейти к оплате</button>
-                            </div>
+                        <div>
+                            <p>Ваш заказ находится в архиве, позвоните нам, чтобы его восставновить, звонок бесплатный: <a
+                                href="tel:84954870177">8 (495) 487-01-77</a></p>
                         </div>
                     </>
                 )}

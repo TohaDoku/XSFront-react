@@ -724,6 +724,10 @@ ul.order-list li a {
 
 /* Стили для мобильных устройств */
 @media (max-width: 768px) {
+    html, #root, .app {
+        max-height: 100vh;
+    }
+
     /* Шапка */
     .navbar-nav {
         display: none;
@@ -894,6 +898,21 @@ ul.order-list li a {
     .sale-block {
         width: 100%;
     }
+
+    .payment-info-one, .payment-info-two, .payment-info-free {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .payment-link-block {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .payment-link {
+        display: block;
+        width: 100%;
+    }
 }
 
 /* Стили для планшетов и десктопов */
@@ -910,5 +929,22 @@ ul.order-list li a {
     .header-padding {
         margin-top: 80px;
         min-height: calc(100vh - 137px);
+    }
+
+    .payment-block {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .payment-info-one, .payment-info-two, .payment-info-free {
+        display: flex;
+    }
+    .payment-info-description {
+        margin-right: 15px;
+    }
+    .payment-link {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
     }
 }

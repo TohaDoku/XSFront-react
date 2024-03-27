@@ -9,6 +9,7 @@ import FileInput from "../../components/FileInput/FileInput";
 import API_URL from '../../config';
 import customFetch from "../../utils/RefreshToken"; // Импорт адреса API
 
+
 class NewOrder extends Component {
     constructor(props) {
         super(props);
@@ -130,7 +131,19 @@ class NewOrder extends Component {
             })
             .then(data => {
                 console.log('Response from server:', data);
-                // Дополнительная логика при успешном ответе от сервера, если необходимо
+                // Проверяем, есть ли в ответе поле order_id
+                if (data && data.order_id) {
+                    // Формируем URL новой страницы заказа
+                    const orderId = data.order_id;
+                    const redirectUrl = `/new-order-page/${orderId}`;
+
+                    // Перенаправляем пользователя на новую страницу заказа
+                    window.location.href = redirectUrl;
+                } else {
+                    // Если поле order_id отсутствует в ответе сервера,
+                    // выводим сообщение об ошибке или выполняем другие действия
+                    console.error('Order ID is missing in the server response');
+                }
             })
             .catch(error => {
                 console.error('There was an error with the fetch operation:', error);
@@ -317,8 +330,10 @@ class NewOrder extends Component {
                                             />
                                         </FloatingLabel>
                                     </Col>
-
-                                    <Button type="submit" className='w-100' variant="warning">Продолжить</Button>
+                                    <Col md={{span: 6, offset: 3}}>
+                                        <Button type="submit" className='w-100' variant="warning">Продолжить</Button>
+                                    </Col>
+                                    
                                 </form>
                             </Row>
                         </div>

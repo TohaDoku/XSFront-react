@@ -18,7 +18,7 @@ class NewOrders extends Component {
 
   async componentDidMount() {
     try {
-      const accessToken = localStorage.getItem('accessToken'); // Токен доступа, замените на свой
+      const accessToken = localStorage.getItem('accessToken'); // Токен доступа
       // Отправка запроса для получения новых заказов
       const newOrdersResponse = await customFetch(`${API_URL}/orders/`, {
         method: 'POST',
@@ -100,7 +100,7 @@ class NewOrders extends Component {
                             </div>
                             <p>{order.status}</p>
                             <p>{order.date}</p>
-                            <NavLink to={`/order/${order.order_id}`}>
+                            <NavLink to={`/new-order-page/${order.order_id}`}>
                               Посмотреть
                             </NavLink>
                           </li>
@@ -121,7 +121,7 @@ class NewOrders extends Component {
                             </div>
                             <p>{order.status}</p>
                             <p>{order.date}</p>
-                            <NavLink to={`/order/${order.order_id}`}>
+                            <NavLink to={`/archive-order-page/${order.order_id}`}>
                               Посмотреть
                             </NavLink>
                           </li>
