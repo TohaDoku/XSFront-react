@@ -5,7 +5,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { NavLink } from 'react-router-dom';
 
-import API_URL from '../../config'; // Импорт адреса API
+import API_URL from '../../config';
+import customFetch from "../../utils/RefreshToken"; // Импорт адреса API
 
 class NewOrders extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class NewOrders extends Component {
     try {
       const accessToken = localStorage.getItem('accessToken'); // Токен доступа, замените на свой
       // Отправка запроса для получения новых заказов
-      const newOrdersResponse = await fetch(`${API_URL}/orders/`, {
+      const newOrdersResponse = await customFetch(`${API_URL}/orders/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ class NewOrders extends Component {
       const newOrdersData = await newOrdersResponse.json();
 
       // Отправка запроса для получения архивных заказов
-      const oldOrdersResponse = await fetch(`${API_URL}/orders/`, {
+      const oldOrdersResponse = await customFetch(`${API_URL}/orders/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

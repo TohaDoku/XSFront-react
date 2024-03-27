@@ -44,9 +44,9 @@ export class Header extends Component {
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu>
-                          <Dropdown.Item href="/profile">Профиль</Dropdown.Item>
+                          <NavLink className='dropdown-item' to='/profile'>Профиль</NavLink>
                           <Dropdown.Divider />
-                          <Dropdown.Item href="/">Выход</Dropdown.Item>
+                          <NavLink className='dropdown-item' to='/'>Выход</NavLink>
                       </Dropdown.Menu>
                   </Dropdown>
               </Container>

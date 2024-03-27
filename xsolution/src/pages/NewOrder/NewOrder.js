@@ -6,7 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import FileInput from "../../components/FileInput/FileInput";
-import API_URL from '../../config'; // Импорт адреса API
+import API_URL from '../../config';
+import customFetch from "../../utils/RefreshToken"; // Импорт адреса API
 
 class NewOrder extends Component {
     constructor(props) {
@@ -120,7 +121,7 @@ class NewOrder extends Component {
             console.log("fetching with requestOptions:", requestOptions);
         }
 
-        fetch(`${API_URL}/order-request/`, requestOptions)
+        customFetch(`${API_URL}/order-request/`, requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

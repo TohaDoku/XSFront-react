@@ -5,7 +5,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { NavLink } from 'react-router-dom';
 
-import API_URL from '../../config'; // Импорт адреса API
+import API_URL from '../../config';
+import customFetch from "../../utils/RefreshToken"; // Импорт адреса API
 
 export class Main extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export class Main extends Component {
       const accessToken = localStorage.getItem('accessToken'); // Токен доступа, замени на свой
 
       // Получение активных заказов
-      const activeOrdersResponse = await fetch(`${API_URL}/orders/`, {
+      const activeOrdersResponse = await customFetch(`${API_URL}/orders/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ export class Main extends Component {
       }
 
       // Получение закрытых заказов
-      const closedOrdersResponse = await fetch(`${API_URL}/orders/`, {
+      const closedOrdersResponse = await customFetch(`${API_URL}/orders/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
