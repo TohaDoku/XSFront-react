@@ -483,133 +483,6 @@ ul.order-list li a {
     overflow-y: scroll;
 }
 
-.chat-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    padding: 20px 10px;
-    background: #fff;
-    z-index: 1;
-}
-
-.chat-header .svg-close {
-    width: 26px;
-}
-
-.chat-header h4 {
-    margin: 0;
-}
-
-.chats-header-logo {
-    display: flex;
-    align-items: center;
-}
-
-.chats-header-logo svg {
-    width: 18px;
-    color: grey;
-}
-
-.chats-header-logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 0 10px;
-}
-
-.link-chat-p {
-    margin-bottom: 0;
-}
-
-.chat-body {
-    border-radius: 5px;
-    padding: 10px;
-    overflow-y: scroll;
-
-}
-
-.chat-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    position: fixed;
-    bottom: 0;
-}
-
-.chat-file, .chat-send {
-    width: 15%;
-}
-
-.chat-input {
-    width: 70%;
-}
-
-.chat-file svg {
-    padding: 5px;
-    width: 40px;
-    color: grey;
-    background: #f6f7f8;
-    border-radius: 50%;
-}
-
-.chat-input input {
-    background: #f6f7f8;
-    height: 40px;
-    width: 100%;
-    border-radius: 25px;
-    padding-left: 10px;
-}
-
-.chat-send {
-    text-align: right;
-}
-
-.chat-send svg {
-    padding: 5px;
-    width: 40px;
-    background: #c4ddfc;
-    color: #fff;
-    border-radius: 50%;
-}
-
-.message-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.message {
-    margin-bottom: 10px;
-}
-
-.message.user {
-    text-align: right;
-}
-
-.message.other {
-    text-align: left;
-}
-
-.message-text {
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    padding: 8px 12px;
-    display: inline-block;
-    max-width: 70%;
-}
-
-.message-timestamp {
-    font-size: 0.8em;
-    color: #999;
-}
-
 @media (min-width: 769px) {
     .main-chat-div {
         padding-top: 0;
@@ -726,6 +599,10 @@ ul.order-list li a {
 @media (max-width: 768px) {
     html, #root, .app {
         max-height: 100vh;
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     /* Шапка */

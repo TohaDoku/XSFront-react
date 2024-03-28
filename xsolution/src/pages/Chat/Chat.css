@@ -1,65 +1,156 @@
 .chat-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    background: #fff;
 }
 
 .chat-header {
-
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
 }
 
-.chat-header h2 {
-    margin: 0;
+.back-arrow {
+    width: 24px;
+    color: #7c7d7d;
+    margin-right: 30px;
 }
 
-.chat-messages {
-    margin-top: 57px;
+.chat-close {
+    width: 34px;
+}
+
+.chat-header-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-header-main-text {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.chat-header-small-text {
+    margin-bottom: 0;
+    font-size: 0.8em;
+}
+
+.chat-body {
+    max-height: calc(100vh - 134px);
+    overflow: auto;
+}
+
+.chat-footer {
+    position: fixed;
+    bottom: 0;
+    padding: 15px;
+    background: #fff;
+    width: 100%;
+    border: none;
+    display: flex;
+}
+
+.chat-footer .send-message {
+    background: rgb(247, 247, 249);
     padding: 10px;
-    height: calc(100vh - 127px); /* Высота контейнера сообщений */
-    overflow-y: scroll; /* Включение вертикальной прокрутки при необходимости */
+    border-radius: 20px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.send-icon {
+    background-color: rgb(66, 139, 250); /* Здесь можно задать цвет сообщения */
+    color: #fff;
+    padding: 10px;
+    width: 44px;
+    margin-right: 10px;
+    border-radius: 50%;
 }
 
 .message {
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.message.user1 {
-    background-color: #007bff;
-    color: #fff;
-    text-align: right;
-}
-
-.message.user2 {
-    background-color: #f4f4f4;
-    color: #000;
-    text-align: left;
-}
-
-.time {
-    font-size: 0.8em;
-    color: #999;
-}
-
-.chat-input {
-    position: fixed;
-    bottom: 0;
-}
-
-.chat-input form {
     display: flex;
-    justify-content: space-between;
-    padding: 15px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 10px 0;
 }
 
-.send-input {
-    background: rgb(246, 247, 249)!important;
+.user1 {
+    justify-content: flex-start;
+}
+
+.user2 {
+    justify-content: flex-end;
+}
+
+.avatar {
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.avatar-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    max-width: 80%;
+    position: relative;
+}
+
+.message-text {
+    padding: 10px 10px 15px 10px;
+    border-radius: 15px;
+}
+
+.message-text.user1-text {
+    background-color: rgb(238, 241, 246); /* Здесь можно задать цвет сообщения */
+}
+
+.message-text.user2-text {
+    background-color: rgb(66, 139, 250); /* Здесь можно задать цвет сообщения */
+    color: #fff;
+}
+
+.message-time.user1-time {
+    font-size: 0.8rem;
+    color: #666;
+    position: absolute;
+    bottom: 0;
+    right: 8px;
+}
+
+.message-time.user2-time {
+    font-size: 0.8rem;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    right: 8px;
+}
+
+@media (min-width: 769px) {
+    .chat-header {
+        padding: 5px 200px;
+    }
+
+    .chat-body {
+        padding: 0 200px;
+    }
+
+    .chat-footer {
+        padding: 15px 200px;
+    }
 }
